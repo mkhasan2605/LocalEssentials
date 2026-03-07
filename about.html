@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container-page">
+        <section class="hero">
+            <h1 class="page-title">About</h1>
+            <p class="page-subtitle">Pupose, audience, and acknowledgements</p>
+        </section>
+
+    </main>
+
+    <!-- Shared + page script -->
+    <script>
+        fetch("header-menu.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data;
+                document.querySelector('.nav a[href="about.html"]').classList.add("active")
+            });
+    </script>
+
+</body>
+
+</html>
