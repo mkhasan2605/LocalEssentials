@@ -10,9 +10,53 @@
 
 <body>
     <div id="header-placeholder"></div>
-    <main>
 
+    <main class="container page">
+        <section class="hero">
+            <h1 class="page-title">Results</h1>
+            <p id="resultsSummary" class="page-subtitle">
+                For: — • Sorted by nearest
+            </p>
+        </section>
+
+        <section class="card">
+            <div class="results-toolbar">
+                <div class="toolbar-group">
+                    <h2 class="section-title">Radius</h2>
+                    <div id="selectedRadius" class="chip">—</div>
+                </div>
+
+                <div class="toolbar-group">
+                    <h2 class="section-title">Selected categories</h2>
+                    <div id="selectedCategories" class="chips"></div>
+                </div>
+
+                <div class="toolbar-actions">
+                    <a href="index.html" class="btn btn-secondary">Change filters</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Nearby places</h2>
+            <div id="resultsList" class="results-list"></div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Status / messages</h2>
+            <div id="resultsStatus" class="card empty-state">
+                <p>Loading results...</p>
+            </div>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>
+                LocalEssentials • Static site (HTML/CSS/JS) • Uses Postcodes.io + OpenStreetMap data
+            </small>
+        </div>
+    </footer>
 
     <!-- JS -->
     <script>
