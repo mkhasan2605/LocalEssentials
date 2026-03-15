@@ -4,15 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help</title>
+    <title>LocalEssentials | Help</title>
     <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
 <body>
     <div id="header-placeholder"></div>
-    <main>
 
+    <main class="container page">
+        <section class="hero">
+            <h1 class="page-title">Help</h1>
+            <p class="page-subtitle">
+                How to use LocalEssentials + troubleshooting + privacy
+            </p>
+        </section>
+
+        <section class="card">
+            <h2 class="card-title">How it works</h2>
+            <ol>
+                <li>Enter a UK postcode OR use your location</li>
+                <li>Choose essentials + radius</li>
+                <li>View results and open Directions</li>
+            </ol>
+
+            <h2 class="card-title">Troubleshooting</h2>
+            <ul>
+                <li>Invalid postcode: check format (e.g., SW1A 1AA)</li>
+                <li>Location denied: enter postcode instead</li>
+                <li>No results: increase radius or change category</li>
+            </ul>
+
+            <h2 class="card-title">Privacy</h2>
+            <ul>
+                <li>No accounts required</li>
+                <li>Location is used only to search nearby essentials</li>
+                <li>Saved settings/favourites are stored locally in your browser (LocalStorage)</li>
+                <li>You can clear data by clearing browser storage</li>
+            </ul>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>
+                LocalEssentials • Static site (HTML/CSS/JS) • Uses Postcodes.io + OpenStreetMap data
+            </small>
+        </div>
+    </footer>
     <!-- JS -->
     <script>
         fetch("header-menu.html")
