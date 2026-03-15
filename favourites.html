@@ -10,9 +10,34 @@
 
 <body>
     <div id="header-placeholder"></div>
-    <main>
 
+    <main class="container page">
+        <section class="hero">
+            <h1 class="page-title">Favourites</h1>
+            <p class="page-subtitle">
+                Your saved places (stored in this browser via LocalStorage)
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Saved essentials</h2>
+
+            <div id="favouritesList" class="favourites-list"></div>
+
+            <div id="emptyState" class="card empty-state">
+                <p>No favourites yet.</p>
+                <p>Go to Results and click "Save ★" on a place.</p>
+            </div>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>
+                LocalEssentials • Static site (HTML/CSS/JS) • Uses Postcodes.io + OpenStreetMap data
+            </small>
+        </div>
+    </footer>
     <!-- JS -->
     <script>
         fetch("header-menu.html")
