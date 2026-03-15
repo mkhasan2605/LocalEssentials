@@ -10,9 +10,98 @@
 
 <body>
     <div id="header-placeholder"></div>
-    <main>
+    <main class="container page">
+        <section class="hero">
+            <h1 class="page-title">Settings</h1>
+            <p class="page-subtitle">
+                Set defaults for faster searching (stored in this browser via LocalStorage)
+            </p>
+        </section>
 
+        <section class="card">
+            <form id="settingsForm" class="form" novalidate>
+                <div class="row">
+                    <label class="label">Default radius</label>
+                    <div class="chips" role="group" aria-label="Default radius">
+                        <button type="button" class="chip" data-radius="1">1 km</button>
+                        <button type="button" class="chip" data-radius="3">3 km</button>
+                        <button type="button" class="chip" data-radius="5">5 km</button>
+                        <button type="button" class="chip" data-radius="10">10 km</button>
+                    </div>
+                    <input type="hidden" id="defaultRadius" name="defaultRadius" value="3" />
+                </div>
+
+                <fieldset class="fieldset">
+                    <legend class="legend">Default essentials (pre-selected on Home/Search)</legend>
+                    <div class="settings-grid">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="essentials" value="hospital" />
+                            <span>Hospital</span>
+                        </label>
+
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="essentials" value="gp" />
+                            <span>GP</span>
+                        </label>
+
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="essentials" value="pharmacy" />
+                            <span>Pharmacy</span>
+                        </label>
+
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="essentials" value="police" />
+                            <span>Police</span>
+                        </label>
+
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="essentials" value="fire_station" />
+                            <span>Fire</span>
+                        </label>
+
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="essentials" value="supermarket" />
+                            <span>Supermarket</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend class="legend">Optional display</legend>
+                    <div class="settings-grid">
+                        <div>
+                            <label class="label" for="theme">Theme</label>
+                            <select id="theme" name="theme" class="input">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="label" for="textSize">Text size</label>
+                            <select id="textSize" name="textSize" class="input">
+                                <option value="normal">Normal</option>
+                                <option value="large">Large</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="row-controls">
+                    <button type="submit" class="btn btn-primary">Save settings</button>
+                    <p id="settingsMessage" class="form-message" aria-live="polite"></p>
+                </div>
+            </form>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>
+                LocalEssentials • Static site (HTML/CSS/JS) • Uses Postcodes.io + OpenStreetMap data
+            </small>
+        </div>
+    </footer>
     <!-- JS -->
     <script>
         fetch("header-menu.html")
