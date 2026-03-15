@@ -52,15 +52,11 @@
         </div>
     </footer>
     <!-- JS -->
+    <script src="assets/js/app.js"></script>
     <script>
-        fetch("header-menu.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("header-placeholder").innerHTML = data;
-                document.querySelector('.nav a[href="help.html"]').classList.add("active");
-            });
-
+        loadHeader("help.html");
     </script>
+
 </body>
 
 </html>
