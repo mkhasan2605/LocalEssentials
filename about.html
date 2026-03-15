@@ -11,13 +11,51 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <main class="container-page">
+    <main class="container page">
         <section class="hero">
             <h1 class="page-title">About</h1>
-            <p class="page-subtitle">Pupose, audience, and acknowledgements</p>
+            <p class="page-subtitle">
+                Purpose, audience, and acknowledgements
+            </p>
         </section>
 
+        <section class="card">
+            <h2 class="card-title">What is LocalEssentials?</h2>
+            <p>
+                A statically hosted website that helps UK users quickly find essential services near a postcode or
+                current location.
+            </p>
+
+            <h2 class="card-title">Purpose</h2>
+            <p>
+                To reduce repeated searches by providing an essentials-first experience with simple filters and clear
+                actions.
+            </p>
+
+            <h2 class="card-title">Target users</h2>
+            <ul>
+                <li>People relocating in the UK (students, families, renters)</li>
+                <li>Visitors staying in a new area</li>
+                <li>Users who prefer a web link instead of an app</li>
+            </ul>
+
+            <h2 class="card-title">Inspiration and data sources</h2>
+            <ul>
+                <li>AroundMe (inspiration)</li>
+                <li>Postcodes.io (postcode to coordinates)</li>
+                <li>OpenStreetMap / Overpass (nearby places)</li>
+                <li>Leaflet (only if map feature is implemented)</li>
+            </ul>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>
+                LocalEssentials • Static site (HTML/CSS/JS) • Uses Postcodes.io + OpenStreetMap data
+            </small>
+        </div>
+    </footer>
 
     <!-- Shared + page script -->
     <script>
