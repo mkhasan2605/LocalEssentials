@@ -103,14 +103,8 @@
         </div>
     </footer>
     <!-- JS -->
-    <script>
-        fetch("header-menu.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("header-placeholder").innerHTML = data;
-                document.querySelector('.nav a[href="settings.html"]').classList.add("active");
-            });
-    </script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/settings.js"></script>
 
 </body>
 

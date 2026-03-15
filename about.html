@@ -58,15 +58,10 @@
     </footer>
 
     <!-- Shared + page script -->
+    <script src="assets/js/app.js"></script>
     <script>
-        fetch("header-menu.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("header-placeholder").innerHTML = data;
-                document.querySelector('.nav a[href="about.html"]').classList.add("active")
-            });
+        loadHeader("about.html");
     </script>
-
 </body>
 
 </html>

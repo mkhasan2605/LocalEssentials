@@ -1,0 +1,1 @@
+loadHeader("favourites.html");
