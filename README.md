@@ -1,26 +1,43 @@
-# LocalEssentials - Initial readme file 
+# LocalEssentials
 
-LocalEssentials is a statically hosted web app that helps users in the UK quickly find essential services near a location. Users can search by UK postcode or use their current location, then view nearby essentials such as GP surgeries, hospitals, pharmacies, police stations, fire stations, and supermarkets.
+LocalEssentials is a browser-based UK essentials finder designed to help users quickly locate nearby services such as GP surgeries, hospitals, pharmacies, police stations, fire stations, and supermarkets. Users can search by postcode or use their current location, then filter and review results based on distance and category.
 
 ## Features
 
-### Core
-- UK postcode search (postcode → latitude/longitude)
-- "Use my location" (browser geolocation) with fallback to postcode
-- Essential category selection (GP, hospital, pharmacy, police, fire, supermarket)
-- Radius selection (1, 3, 5, 10 km)
-- Results list shown as cards (sorted by nearest)
-- Directions link to Google Maps
-- Multi-page site: Home/Search, Results, Help, About
+- UK postcode search with coordinate lookup
+- Current location search using browser geolocation
+- Category-based filtering for essential services
+- Radius-based search options
+- Nearest-first results display
+- Directions links to Google Maps
+- Favourites and settings stored in LocalStorage
+- Multi-page interface including Home, Results, Favourites, Help, and About
 
-### Stretch (Above & Beyond)
-- Favourites saved in LocalStorage (view/remove + directions)
-- Settings saved in LocalStorage (default radius/categories, optional theme)
+## Tech Stack
 
+- HTML
+- CSS
+- JavaScript
+- GitHub Pages
 
-## Tech stack
-- HTML, CSS, JavaScript (no backend)
-- Static hosting (GitHub Pages)
-- APIs:
-  - Postcodes.io (postcode lookup)
-  - OpenStreetMap / Overpass (nearby places)
+## APIs and Data Sources
+
+- Postcodes.io
+- OpenStreetMap / Overpass
+
+## Run Locally
+
+1. Clone the repository
+2. Open the project in VS Code
+3. Run with Live Server or open `index.html` in your browser
+
+## Live Demo
+
+Add your GitHub Pages URL here
+
+## Future Improvements
+
+- Improve validation and error handling
+- Refactor shared JavaScript logic
+- Add further usability and UI enhancements
+- Continue iterative improvements in future versions
