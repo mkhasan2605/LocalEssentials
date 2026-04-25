@@ -259,6 +259,38 @@ a:focus {
     color: #374151;
 }
 
+
+/* Loading Spinner wheel */
+.spinner-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 0;
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--border);
+    border-top-color: #111827;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner-text {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0;
+}
+
+
 /* ========== Footer ========== */
 .site-footer {
     border-top: 1px solid var(--border);

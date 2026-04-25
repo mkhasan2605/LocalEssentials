@@ -161,3 +161,16 @@ function saveFavourite(item) {
         return true; // saved
     }
 }
+
+// Loading Spinning wheel 
+function showSpinner() {
+    document.getElementById('resultsStatus').innerHTML = `
+        <div class="spinner-wrap">
+            <div class="spinner"></div>
+            <p class="spinner-text">Finding nearby places&hellip;</p>
+        </div>`;
+}
+
+function showStatus(html) {
+    document.getElementById('resultsStatus').innerHTML = html;
+}
