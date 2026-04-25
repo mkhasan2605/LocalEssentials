@@ -3,13 +3,16 @@ loadHeader("results.html");
 
 // results.js
 
-const CATEGORY_TAGS = {
-    hospital: 'amenity=hospital',
-    gp: 'amenity=doctors',
-    pharmacy: 'amenity=pharmacy',
-    police: 'amenity=police',
-    fire_station: 'amenity=fire_station',
-    supermarket: 'shop=supermarket',
+
+// CATEGORY CONFIG — tags, icons, display labels
+
+const CATEGORY_CONFIG = {
+    hospital: { tag: 'amenity=hospital', icon: '🏥', label: 'Hospital' },
+    gp: { tag: 'amenity=doctors', icon: '🩺', label: 'GP Surgery' },
+    pharmacy: { tag: 'amenity=pharmacy', icon: '💊', label: 'Pharmacy' },
+    police: { tag: 'amenity=police', icon: '🚓', label: 'Police' },
+    fire_station: { tag: 'amenity=fire_station', icon: '🚒', label: 'Fire Station' },
+    supermarket: { tag: 'shop=supermarket', icon: '🛒', label: 'Supermarket' },
 };
 
 const raw = sessionStorage.getItem('LE_search');
