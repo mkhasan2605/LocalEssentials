@@ -26,7 +26,7 @@ fetchNearby(search.lat, search.lng, search.categories);
 
 async function fetchNearby(lat, lng, categories) {
     const statusEl = document.getElementById('resultsStatus');
-    statusEl.innerHTML = '<p>Loading results…</p>';
+    showSpinner();
 
     const radiusMetres = (search.radiusKm ?? 3) * 1000; // ← was hardcoded 3000
 
