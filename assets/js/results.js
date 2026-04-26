@@ -44,13 +44,12 @@ const catChipsEl = document.getElementById('selectedCategories');
 fetchNearby(search.lat, search.lng, search.categories);
 
 async function fetchNearby(lat, lng, categories) {
-    const statusEl = document.getElementById('resultsStatus');
     showSpinner();
 
-    const radiusMetres = (search.radiusKm ?? 3) * 1000; // ← was hardcoded 3000
+    const radiusMetres = (search.radiusKm ?? 3) * 1000;
 
     const filters = categories.map(cat => {
-        const tag = CATEGORY_TAGS[cat];
+        const tag = CATEGORY_CONFIG[cat]?.tag ?? cat;
         const [key, val] = tag.split('=');
         return `node["${key}"="${val}"](around:${radiusMetres},${lat},${lng});
             way["${key}"="${val}"](around:${radiusMetres},${lat},${lng});`;
@@ -59,30 +58,30 @@ async function fetchNearby(lat, lng, categories) {
     const query = `[out:json][timeout:25];(\n${filters}\n);out center;`;
 
     try {
-    const response = await fetch('https://overpass-api.de/api/interpreter', {
-        method: 'POST',
-        body: 'data=' + encodeURIComponent(query),
-    });
-    const data = await response.json();
+        const response = await fetch('https://overpass-api.de/api/interpreter', {
+            method: 'POST',
+            body: 'data=' + encodeURIComponent(query),
+        });
+        const data = await response.json();
 
         if (!data.elements || data.elements.length === 0) {
             showStatus('<p>No results found. Try a wider radius or a different category.</p>');
-        return;
-    }
+            return;
+        }
 
-    const sorted = data.elements
-        .map(el => ({
-            ...el,
+        const sorted = data.elements
+            .map(el => ({
+                ...el,
                 distanceM: calcDistance(
                     lat, lng,
                     el.lat ?? el.center?.lat,
                     el.lon ?? el.center?.lon
                 ),
-        }))
-        .sort((a, b) => a.distanceM - b.distanceM);
+            }))
+            .sort((a, b) => a.distanceM - b.distanceM);
 
         showStatus(`<p>${sorted.length} place(s) found.</p>`);
-    showResults(sorted);
+        showResults(sorted);
 
     } catch (err) {
         showStatus('<p>Could not load results. Please check your connection and try again.</p>');
@@ -164,6 +163,45 @@ function showResults(elements) {
 }
 
 
+// Sound Feedback on save (Web Audio API)
+
+let _audioCtx = null;
+function getAudioCtx() {
+    if (!_audioCtx) {
+        _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    return _audioCtx;
+}
+
+function playTone(ctx, freq, startTime, duration, volume) {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, startTime);
+    gain.gain.setValueAtTime(volume, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(startTime);
+    osc.stop(startTime + duration);
+}
+
+function playFeedback(saved) {
+    if (!saved) return;
+    try {
+        const ctx = getAudioCtx();
+        ctx.resume().then(() => {
+            const t = ctx.currentTime;
+            // Two-note ascending chime on save: C5 then G5
+            playTone(ctx, 523.25, t, 0.25, 0.18);
+            playTone(ctx, 783.99, t + 0.13, 0.25, 0.18);
+        });
+    } catch (e) {
+        // Silently fail if Web Audio API unavailable
+    }
+}
+
+
 // Loading Spinning wheel 
 function showSpinner() {
     document.getElementById('resultsStatus').innerHTML = `
@@ -177,9 +215,8 @@ function showStatus(html) {
     document.getElementById('resultsStatus').innerHTML = html;
 }
 
-// ─────────────────────────────────────────────
-// 7. HELPERS
-// ─────────────────────────────────────────────
+// Helper methods 
+
 function getCategoryKey(osmValue) {
     return Object.keys(CATEGORY_CONFIG).find(
         k => CATEGORY_CONFIG[k].tag.split('=')[1] === osmValue
@@ -213,7 +250,7 @@ function saveFavourite(item) {
         localStorage.setItem('LE_favs', JSON.stringify(favs.filter(f => f.id !== item.id)));
         return false;
     }
-        favs.push(item);
-        localStorage.setItem('LE_favs', JSON.stringify(favs));
+    favs.push(item);
+    localStorage.setItem('LE_favs', JSON.stringify(favs));
     return true;
 }
