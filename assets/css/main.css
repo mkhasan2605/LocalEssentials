@@ -322,3 +322,93 @@ a:focus {
         justify-content: flex-start;
     }
 }
+
+/* ========== Result Card (icon layout) ========== */
+.result-card {
+    margin-bottom: 12px;
+}
+
+.result-card-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.result-icon {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.result-body {
+    flex: 1;
+}
+
+.result-name {
+    margin: 0 0 4px;
+    font-size: 16px;
+}
+
+.result-meta {
+    margin: 0 0 4px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.result-category {
+    font-weight: 600;
+}
+
+.result-dist {
+    margin-left: 4px;
+}
+
+.result-address {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.result-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+/* Saved button highlight */
+.btn-save.saved {
+    background: #111827;
+    color: #fff;
+    border-color: #111827;
+}
+
+/* ========== Section title ========== */
+.section-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+/* ========== Results toolbar ========== */
+.results-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.toolbar-group {
+    flex: 1;
+    min-width: 140px;
+}
+
+.toolbar-actions {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 2px;
+}
