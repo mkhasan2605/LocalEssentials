@@ -33,12 +33,14 @@ LocalEssentials is a browser-based UK essentials finder designed to help users q
 
 ## Live Demo
 
-TODO:
-Add GitHub Pages URL
+The project is live at:
+https://mkhasan2605.github.io/LocalEssentials/
 
 ## Future Improvements
 
 - Improve validation and error handling
+- Improve the search and filtering experience
 - Refactor shared JavaScript logic
+- Add more detailed category information for each local essential service
 - Add further usability and UI enhancements
 - Continue iterative improvements in future versions
