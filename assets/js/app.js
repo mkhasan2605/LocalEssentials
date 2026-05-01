@@ -1,3 +1,4 @@
+// need to be changed to load page content dynamically and make header static
 function loadHeader(activePage) {
     fetch("header-menu.html")
         .then(response => response.text())

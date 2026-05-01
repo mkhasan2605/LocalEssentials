@@ -1,9 +1,5 @@
 loadHeader("results.html");
 
-
-// results.js
-
-
 // CATEGORY CONFIG — tags, icons, display labels
 
 const CATEGORY_CONFIG = {
@@ -14,7 +10,6 @@ const CATEGORY_CONFIG = {
     fire_station: { tag: 'amenity=fire_station', icon: '🚒', label: 'Fire Station' },
     supermarket: { tag: 'shop=supermarket', icon: '🛒', label: 'Supermarket' },
 };
-
 
 // Load Search State
 
@@ -89,8 +84,7 @@ async function fetchNearby(lat, lng, categories) {
     }
 }
 
-
-// 4. RENDER LIST RESULTS (with icons)
+// RENDER LIST RESULTS (with icons)
 
 function showResults(elements) {
     const list = document.getElementById('resultsList');
@@ -215,7 +209,7 @@ function showStatus(html) {
     document.getElementById('resultsStatus').innerHTML = html;
 }
 
-// Helper methods 
+//#region Helper Methods
 
 function getCategoryKey(osmValue) {
     return Object.keys(CATEGORY_CONFIG).find(
@@ -254,3 +248,4 @@ function saveFavourite(item) {
     localStorage.setItem('LE_favs', JSON.stringify(favs));
     return true;
 }
+//#endregion

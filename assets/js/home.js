@@ -1,6 +1,5 @@
 loadHeader("index.html");
 
-// home.js 
 const saved = JSON.parse(localStorage.getItem('LE_settings') || '{}');
 
 // Pre-select saved radius radio
@@ -17,8 +16,6 @@ if (saved.categories?.length) {
         }
     });
 }
-
-
 
 const form = document.getElementById('searchForm');
 const pcInput = document.getElementById('postcode');
