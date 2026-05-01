@@ -11,6 +11,7 @@ LocalEssentials is a browser-based UK essentials finder designed to help users q
 - Nearest-first results display
 - Directions links to Google Maps
 - Favourites and settings stored in LocalStorage
+- Sound feedback when saving a selected item
 - Multi-page interface including Home, Results, Favourites, Help, and About
 
 ## Tech Stack
@@ -24,6 +25,7 @@ LocalEssentials is a browser-based UK essentials finder designed to help users q
 
 - Postcodes.io
 - OpenStreetMap / Overpass
+- Web Audio API
 
 ## Run Locally
 
